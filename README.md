@@ -18,11 +18,14 @@ soschat-web is running in 8081 and soschat-web-redis in 8082 and following API's
 http://localhost:8081/hello
 http://localhost:8082/hello
 
-Both can be accessed from Zuul server using single port and depending on routing configuration in zuul - 
+Both can be accessed from Zuul server using single port and depending on routing configuration in zuul
+
 `zuul.routes.soschat-web.path=/web/v1/** `
+
 `zuul.routes.soschat-web.url=http://localhost:8081`
 
 `zuul.routes.soschat-web-redis.path=/web-redis/v1/**`
+
 `zuul.routes.soschat-web-redis.url=http://localhost:8082`
 
 soschat-web - http://localhost:8765/web/v1/hello
