@@ -31,4 +31,13 @@ Both can be accessed from Zuul server using single port and depending on routing
 soschat-web - http://localhost:8765/web/v1/hello
 soschat-web-redis - http://localhost:8765/web-redis/v1/hello
 
+##Spring config server
+Output of API: http://localhost:8765/web/v1/hello is fetching message from property file configured in config-server (http://localhost:8888/soschatweb/message)
+- Property can be updated in git repo https://github.com/rhishirajnema/config/blob/master/soschatweb.properties
+- Execute refresh API: http://localhost:8081/actuator/refresh - POST
+- Changed will reflect here : http://localhost:8765/web/v1/hello without restarting JVM
 
+###### Encryption/Descryption
+1. Encrypted password is stored in github repo - https://github.com/rhishirajnema/config/blob/master/soschatweb.properties
+2. This API returns descrypted password - http://localhost:8081/password
+3. Encryption API in config server - http://localhost:8888/encrypt - POST (send text to be encrypted in body)
